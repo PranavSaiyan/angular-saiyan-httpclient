@@ -22,8 +22,9 @@
   <button type="button"  class="btn btn-warning" (click)="onFetch()">Fetch</button>
   <button type="button" disabled class="btn btn-danger">Delete</button>
 </div>
-<h1 style="margin-top:4%;" *ngIf="loadedPosts.length < 1">No Posts Available</h1>
-<div style="margin-top:2%;" class="list-group" *ngIf="loadedPosts.length >= 1">
+<h1 style="margin-top:4%;" *ngIf="loadedPosts.length < 1 && !isLoading">No Posts Available</h1>
+<img *ngIf="isLoading" src="https://loading.io/spinners/dual-ring/lg.dual-ring-loader.gif" width="20%" >
+<div style="margin-top:2%;" class="list-group" *ngIf="loadedPosts.length >= 1 && !isLoading">
   <a  class="list-group-item list-group-item-action flex-column align-items-start active" *ngFor="let p of loadedPosts">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{p.title}}</h5>

@@ -9,6 +9,7 @@ import {Postmodel} from './postmodel';
 })
 export class AppComponent implements OnInit{
   constructor(private http: HttpClient){}
+  isLoading = false;
   loadedPosts: Postmodel[] = [];
   ngOnInit() {
  this.FetchPosts();
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit{
     });
   }
   private FetchPosts() {
+    this.isLoading = true;
     this.http.get('https://socialangularhttp.firebaseio.com/posts.json').pipe(
       map((responseData: {[key: string]:Postmodel})=>{
         const posts : Postmodel[] = [];
@@ -34,6 +36,7 @@ export class AppComponent implements OnInit{
         return posts;
       })).subscribe(response=>{
         this.loadedPosts = response;
+        this.isLoading = false;
         })
   }
 }
