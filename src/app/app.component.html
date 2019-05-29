@@ -1,0 +1,33 @@
+<div class="row" >
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+<form>
+    <div class="form-group">
+      <label class="col-form-label" for="inputLarge">Title</label>
+      <input class="form-control form-control-sm" type="text"  id="inputLarge" #title>
+    </div>
+    <div class="form-group">
+      <label for="exampleTextarea">Description</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3" #desc></textarea>
+    </div>
+    <div class="d-flex justify-content-center">
+<button type="button" (click)="onPost(title.value, desc.value)" class="btn btn-success">Post</button>
+    </div>
+</form>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+<hr>
+<div class="d-flex justify-content-around">
+  <button type="button"  class="btn btn-warning" (click)="onFetch()">Fetch</button>
+  <button type="button" disabled class="btn btn-danger">Delete</button>
+</div>
+<h1 style="margin-top:4%;" *ngIf="loadedPosts.length < 1">No Posts Available</h1>
+<div style="margin-top:2%;" class="list-group" *ngIf="loadedPosts.length >= 1">
+  <a  class="list-group-item list-group-item-action flex-column align-items-start active" *ngFor="let p of loadedPosts">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{p.title}}</h5>
+    </div>
+    <p class="mb-1">{{p.content}}</p>
+  </a>
+</div>
