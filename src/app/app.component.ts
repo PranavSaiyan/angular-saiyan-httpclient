@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
   isLoading = false;
   loadedPosts: Postmodel[] = [];
   ngOnInit() {
-    this.onFetch();
+   this.onFetch();
   }
   onFetch(){
     this.isLoading = true;
@@ -25,6 +25,11 @@ export class AppComponent implements OnInit{
   onPost(t:string, d:string) {
     const payload = {title: t, content: d};
     this.postService.createPostandSave(payload);
+  }
+  clearPosts() {
+    this.postService.deletePosts().subscribe(()=>{
+      this.loadedPosts = [];
+    })
   }
   
 }

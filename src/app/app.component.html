@@ -20,7 +20,7 @@
 <hr>
 <div class="d-flex justify-content-around">
   <button type="button"  class="btn btn-warning" (click)="onFetch()">Fetch</button>
-  <button type="button" disabled class="btn btn-danger">Delete</button>
+  <button type="button"  class="btn btn-danger" (click)="clearPosts()">Delete</button>
 </div>
 <h1 style="margin-top:4%;" *ngIf="loadedPosts.length < 1 && !isLoading">No Posts Available</h1>
 <img *ngIf="isLoading" src="https://loading.io/spinners/dual-ring/lg.dual-ring-loader.gif" width="20%" >

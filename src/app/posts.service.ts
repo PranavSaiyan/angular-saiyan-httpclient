@@ -23,4 +23,8 @@ export class PostsService {
         return posts;
       }));
   }
+  deletePosts() {
+    return this.http.delete('https://socialangularhttp.firebaseio.com/posts.json'); 
+  }
+  
 }
