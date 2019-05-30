@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
+import {map, catchError} from 'rxjs/operators';
 import {Postmodel} from './postmodel';
-import {Subscription} from 'rxjs';
+import {Subscription, throwError} from 'rxjs';
 import {PostsService} from './posts.service';
 @Component({
   selector: 'my-app',
