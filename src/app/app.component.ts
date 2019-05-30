@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
   isLoading = false;
   loadedPosts: Postmodel[] = [];
   ngOnInit() {
-   this.onFetch();
+   //this.onFetch();
   }
   onFetch(){
     this.isLoading = true;
